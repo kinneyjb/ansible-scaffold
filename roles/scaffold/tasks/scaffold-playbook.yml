@@ -1,0 +1,22 @@
+---
+# roles/scaffold/tasks/scaffold-playbook.yml
+# given a project from the projects dictionary
+
+- name: assert '{{ scaffold_step }}' input for project '{{ project.name }}'
+  assert:
+    that:
+      - targetdir is defined
+
+- name: create playbook tree for project '{{ project.name}}'
+  file:
+    path: '{{ targetdir }}/{{item.path}}'
+    state: directory
+  with_filetree: '{{ role_path }}/templates/project'
+  when: item.state == 'directory'
+
+- name: create playbook files for project '{{ project.name}}'
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ targetdir }}/{{item.path}}'
+  with_filetree: '{{ role_path }}/templates/project'
+  when: item.state == 'file'

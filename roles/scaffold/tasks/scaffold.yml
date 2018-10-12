@@ -1,0 +1,35 @@
+---
+# roles/scaffold/tasks/scaffold.yml
+# given a project from the projects dictionary
+
+- name: assert scaffold input for project '{{ project.name }}'
+  assert:
+    that:
+      - scaffold is defined
+      - project is defined
+      - project.inventory in scaffold.inventory.layouts
+
+- name: initialize directory for generation of '{{ project.name}}'
+  file:
+    path: "{{ project.basedir }}/{{ project.name}}"
+    state: "{{ item }}"
+  loop:
+    - directory
+
+- name: process scaffold steps for project '{{ project.name }}'
+  include_tasks: "{{ role_path }}/tasks/{{ scaffold_step }}.yml"
+  vars:
+    targetdir: "{{ project.basedir }}/{{ project.name }}"
+  loop:
+    - scaffold-inventory
+    - scaffold-playbook
+  loop_control:
+    loop_var: scaffold_step
+
+- name: process roles for project '{{ project.name }}'
+  include_tasks: "{{ role_path }}/tasks/scaffold-role.yml"
+  vars:
+    targetdir: "{{ project.basedir }}/{{ project.name }}"
+  loop: "{{ project.roles }}"
+  loop_control: 
+    loop_var: project_role_name

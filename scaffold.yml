@@ -1,0 +1,5 @@
+---
+# file: project.yml
+- hosts: local
+  roles:
+    - scaffold

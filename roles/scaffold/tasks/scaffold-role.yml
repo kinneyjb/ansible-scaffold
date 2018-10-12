@@ -1,0 +1,23 @@
+---
+# roles/scaffold/tasks/scaffold-role.yml
+# given a project from the projects dictionary
+
+- name: assert input for role in project '{{ project.name }}'
+  assert:
+    that:
+      - project_role_name is defined
+      - targetdir is defined
+
+- name: create directory tree for role '{{ project_role_name }}' in project '{{ project.name }}'
+  file:
+    path: '{{ targetdir }}/roles/{{ project_role_name }}/{{ item.path }}'
+    state: directory
+  with_filetree: '{{ role_path }}/templates/role'
+  when: item.state == 'directory'
+
+- name: create files for role '{{ project_role_name }}' in project '{{ project.name }}'
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ targetdir }}/roles/{{ project_role_name }}/{{ item.path }}'
+  with_filetree: '{{ role_path }}/templates/role'
+  when: item.state == 'file'

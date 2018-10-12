@@ -1,0 +1,3 @@
+---
+# file: roles/{{ role_name }}/tasks/main.yml
+# contains the main list of tasks to be executed by the role

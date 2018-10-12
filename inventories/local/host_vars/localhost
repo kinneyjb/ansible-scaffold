@@ -1,0 +1,17 @@
+---
+# file: inventories/local/host_vars/localhost
+# options used in the scaffold role
+# override these with -e @your-generate.yml
+
+projects:
+  - name: test-inventory-standard
+    basedir: ./generated
+    inventory: standard
+    roles:
+      - common
+  - name: test-inventory-alternate
+    basedir: ./generated
+    inventory: alternate
+    roles:
+      - common
+      - test-role_name

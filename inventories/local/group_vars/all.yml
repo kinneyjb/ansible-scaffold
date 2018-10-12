@@ -1,0 +1,6 @@
+scaffold:
+  inventory:
+    default: standard
+    layouts:
+      - standard
+      - alternate

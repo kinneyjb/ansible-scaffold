@@ -1,0 +1,16 @@
+---
+# file: roles/scaffold/tasks/main.yml
+
+- name: display the scaffold options
+  debug:
+    var: scaffold
+
+- name: display the project options
+  debug:
+    var: projects
+
+- name: process scaffolds
+  include: scaffold.yml
+  loop: "{{ projects | flatten(levels=1) }}"
+  loop_control: 
+    loop_var: project
