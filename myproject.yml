@@ -1,0 +1,10 @@
+---
+# file: mproject.yml
+# example to use when running ansible-playbook with --extra-vars=@myproject.yml
+projects:
+  - name: myproject
+    basedir: ./generated
+    inventory: standard
+    roles:
+      - mycommonrole
+      - myspecialrole
