@@ -21,7 +21,7 @@ $ ansible-playbook scaffold.yml
 ## customizing
 
 
-The `scaffold` is configured with a dictionary located in [inventories/local/group_vars/all.yml](./inventories/local/group_vars/all.yml). It has options for the 2 styles of inventories referenced in the best practices.
+The `scaffold` is configured with a dictionary located in [roles/scaffold/defaults/main.yml](./roles/scaffold/defaults/main.yml). It has options for the 2 styles of inventories referenced in the best practices.
 
 ```yaml
 scaffold:

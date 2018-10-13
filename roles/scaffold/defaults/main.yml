@@ -1,0 +1,10 @@
+---
+# file: roles/scaffold/defaults/main.yml
+# default variables for the role
+
+scaffold:
+  inventory:
+    default: standard
+    layouts:
+      - standard
+      - alternate

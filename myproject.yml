@@ -4,7 +4,7 @@
 projects:
   - name: myproject
     basedir: ./generated
-    inventory: standard
+    inventory: alternate
     roles:
       - mycommonrole
       - myspecialrole

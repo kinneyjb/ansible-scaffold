@@ -1,6 +1,2 @@
-scaffold:
-  inventory:
-    default: standard
-    layouts:
-      - standard
-      - alternate
+---
+# file: group_vars/all.yml
