@@ -1,4 +1,4 @@
 ---
-# file: roles/{{ role_name }}/handlers/main.yml
+# file: roles/{{ project_role_name }}/handlers/main.yml
 # contains handlers, which may be used by this role
 # or even anywhere outside this role

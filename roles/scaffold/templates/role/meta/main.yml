@@ -1,4 +1,4 @@
 ---
-# file: roles/{{ role_name }}/templates/main.yml
+# file: roles/{{ project_role_name }}/templates/main.yml
 # defines some meta data for this role
 # some times dependencies on other roles

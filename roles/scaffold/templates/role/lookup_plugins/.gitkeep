@@ -1,3 +1,3 @@
 ---
-# file: roles/{{ role_name }}/lookup_plugins/main.yml
+# file: roles/{{ project_role_name }}/lookup_plugins/main.yml
 # roles can use include other plugins, like 'lookup' in this case
